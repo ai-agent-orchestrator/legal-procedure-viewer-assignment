@@ -53,6 +53,25 @@ The frontend request functions are separated in:
 frontend/legal-procedure-viewer/src/api/legalProcedureApi.js
 ```
 
+The API contract used by the frontend is also recorded in:
+
+```text
+api-docs.json
+```
+
+## Design tokens
+
+The legal viewer uses a small domain-specific token set for colors, spacing, and control radii:
+
+```text
+frontend/legal-procedure-viewer/design/legal.tokens.json
+-> npm run tokens
+-> frontend/legal-procedure-viewer/src/tokens.css
+-> shared React styles
+```
+
+The tokens are a collaboration convention for keeping screens visually consistent. They are not a backend security or API standard.
+
 ## Run locally
 
 ### Backend

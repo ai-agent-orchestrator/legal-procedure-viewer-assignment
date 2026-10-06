@@ -1,0 +1,130 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Legal Procedure API",
+    "version": "1.0.0",
+    "description": "API contract used by the React legal procedure viewer."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/api/legal/procedures": {
+      "get": {
+        "summary": "List legal procedures",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["CIVIL", "CRIMINAL", "FAMILY", "ELECTRONIC_LITIGATION"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legal procedure list"
+          }
+        }
+      }
+    },
+    "/api/legal/procedures/{code}": {
+      "get": {
+        "summary": "Get a legal procedure",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Procedure detail"
+          },
+          "404": {
+            "description": "Procedure not found"
+          }
+        }
+      }
+    },
+    "/api/legal/procedures/{code}/steps": {
+      "get": {
+        "summary": "List procedure steps",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Procedure steps"
+          }
+        }
+      }
+    },
+    "/api/legal/criminal/checklist/supplementary-investigation": {
+      "get": {
+        "summary": "Get supplementary investigation checklist",
+        "responses": {
+          "200": {
+            "description": "Checklist response"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Issue a JWT access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JWT login response"
+          },
+          "401": {
+            "description": "Invalid credentials"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "required": ["username", "password"],
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "user"
+          },
+          "password": {
+            "type": "string",
+            "example": "user123"
+          }
+        }
+      }
+    }
+  }
+}
