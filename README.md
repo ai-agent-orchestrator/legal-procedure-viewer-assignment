@@ -2,6 +2,24 @@
 
 React and Spring Boot integration assignment customized for a legal-procedure service.
 
+## 과제 간단 설명
+
+Spring Boot REST API와 React를 연동하여 법률 절차 정보를 조회하는 웹 애플리케이션을 구현한 과제입니다. 기존 메뉴 관리 예제의 기술 구조를 법률 도메인으로 바꾸어, 법률 절차 목록·검색·상세·체크리스트 화면을 구성했습니다.
+
+이 과제에서 확인하는 핵심 흐름은 다음과 같습니다.
+
+```text
+React 화면
+→ API 함수 분리
+→ fetch로 JSON 요청
+→ Spring Boot Controller
+→ Service·Repository·DB
+→ JSON 응답
+→ React 화면 갱신
+```
+
+또한 로딩·오류·빈 결과 상태를 처리하고, `api-docs.json`, Postman 컬렉션, 디자인 토큰 파일을 함께 제공하여 API 명세·실행 검증·공통 디자인 기준을 확인할 수 있도록 했습니다. 법률 조회 API는 공개하고, AI API는 JWT 인증을 요구하도록 보안 흐름도 문서화했습니다.
+
 ## Project goal
 
 This repository demonstrates the assignment's main technical flow:
