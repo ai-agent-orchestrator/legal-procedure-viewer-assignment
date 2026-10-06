@@ -59,6 +59,14 @@ The API contract used by the frontend is also recorded in:
 api-docs.json
 ```
 
+Postman requests for the same contract are stored in:
+
+```text
+postman/legal-procedure-viewer.postman_collection.json
+```
+
+The collection checks login, public legal reads, procedure detail, checklist retrieval, an expected `401` without JWT, and an authenticated AI request. The final AI request requires a configured LLM provider key only when the external model call is enabled.
+
 ## Design tokens
 
 The legal viewer uses a small domain-specific token set for colors, spacing, and control radii:
@@ -82,6 +90,8 @@ cd backend/guardrail-ready-policy-checker
 ```
 
 The backend runs on `http://localhost:8080`.
+
+The assignment backend uses an in-memory H2 database and seeds legal procedure data at startup, so a separate MySQL installation is not required for this standalone copy.
 
 ### Frontend
 
