@@ -1,0 +1,16 @@
+# Frontend dependencies and build output
+frontend/legal-procedure-viewer/node_modules/
+frontend/legal-procedure-viewer/dist/
+
+# Gradle cache and build output
+backend/guardrail-ready-policy-checker/.gradle/
+backend/guardrail-ready-policy-checker/build/
+
+# IDE files
+**/.idea/
+*.iml
+
+# Local environment files
+.env
+.env.*
+!.env.example
